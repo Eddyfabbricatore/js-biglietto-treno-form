@@ -1,9 +1,11 @@
 const inputName = document.getElementById('inputText1');
 const inputKm = document.getElementById('inputText2');
 const inputAge = document.getElementById('selectAge');
+const containerActive = document.querySelector('.container-active');
 
 // bottoni
 const bottone1 = document.getElementById('btn-1');
+const bottone2 = document.getElementById('btn-2');
 
 // colonne
 let col1 = document.getElementById('col-1');
@@ -19,6 +21,8 @@ let discountSenior = 40;
 let priceDiscount;
 
 bottone1.addEventListener('click', function(){
+  containerActive.classList.add('active');
+
   priceDiscount = price;
 
   col1.innerHTML += inputName.value;
@@ -42,4 +46,14 @@ bottone1.addEventListener('click', function(){
   col3.innerHTML += Math.floor(Math.random() * 10) + 1;
 
   col4.innerHTML += Math.floor(Math.random() * 10000) + 1;
+});
+
+bottone2.addEventListener('click', function(){
+  containerActive.classList.remove('active');
+
+  col1.innerHTML = `<h2>NOME PASSEGERO</h2>`;
+  col2.innerHTML = `<h3>Offerta</h3>`;
+  col3.innerHTML = `<h3>Carrozza</h3>`;
+  col4.innerHTML = `<h3>Codice CP</h3>`;
+  col5.innerHTML = `<h3>Costo biglietto</h3>`;
 });
