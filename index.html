@@ -19,7 +19,7 @@
     <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
 
     <div>
-      <div class="row justify-content-center ">
+      <div class="row justify-content-center">
         <div class="col">
           <label for="label1" class="form-label">Nome e Cognome</label>
           <input type="text" id="inputText1" class="form-control">
@@ -32,17 +32,46 @@
 
         <div class="col">
           <label for="label3" class="form-label">Fascia d'età</label>
-          <select class="form-select" aria-label="Default select example">
-            <option value="1">Minorenne</option>
-            <option value="2">Maggiorenne</option>
-            <option value="3">Over 65</option>
+          <select id="selectAge" class="form-select" aria-label="Default select example">
+            <option value="Minorenne">Minorenne</option>
+            <option value="Maggiorenne">Maggiorenne</option>
+            <option value="Over 65">Over 65</option>
           </select>
         </div>
       </div>
 
-      <button class="btn btn-primary my-3">Genera</button>
-      <button class="btn btn-primary my-3">Annulla</button>
+      <button id="btn-1" class="btn btn-primary my-3">Genera</button>
+      <button id="btn-2" class="btn btn-primary my-3">Annulla</button>
     </div>
+  </div>
+
+  <div class="container my-3">
+    <h1>Il tuo biglietto</h1>
+
+    <h2>Dettaglio passegero</h2>
+
+    <div class="row my-3">
+      <div id="col-1" class="col">
+        <h2>NOME PASSEGERO</h2>
+      </div>
+
+      <div id="col-2" class="col">
+        <h3>Offerta</h3>
+      </div>
+
+      <div id="col-3" class="col">
+        <h3>Carrozza</h3>
+      </div>
+
+      <div id="col-4" class="col">
+        <h3>Codice CP</h3>
+      </div>
+
+      <div id="col-5" class="col">
+        <h3>Costo biglietto</h3>
+      </div>
+    </div>
+
   </div>
   
   <script src="script.js"></script>
