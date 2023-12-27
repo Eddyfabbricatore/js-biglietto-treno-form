@@ -1,59 +1,61 @@
-const inputName = document.getElementById('inputText1');
-const inputKm = document.getElementById('inputText2');
-const inputAge = document.getElementById('selectAge');
-const containerActive = document.querySelector('.container-active');
-
-// bottoni
-const bottone1 = document.getElementById('btn-1');
-const bottone2 = document.getElementById('btn-2');
-
-// colonne
-let col1 = document.getElementById('col-1');
-let col2 = document.getElementById('col-2');
-let col3 = document.getElementById('col-3');
-let col4 = document.getElementById('col-4');
-let col5 = document.getElementById('col-5');
+const Name = document.getElementById('inputName');
+const Km = document.getElementById('inputKm');
+const Age = document.getElementById('selectAge');
+const ticket = document.querySelector('.ticket');
+const btnCreate = document.getElementById('btnCreate');
+const btnReset = document.getElementById('btnReset');
+let colName = document.getElementById('colName');
+let colType = document.getElementById('colType');
+let colCarriage = document.getElementById('colCarriage');
+let colCode = document.getElementById('colCode');
+let colCost = document.getElementById('colCost');
 
 const priceXKm = 0.21;
-let price = inputKm.value * priceXKm;
-let discountYoung = 20;
-let discountSenior = 40;
+let price = Km.value * priceXKm;
+let discountUnderage = 20;
+let discountOld = 40;
 let priceDiscount;
 
-bottone1.addEventListener('click', function(){
-  containerActive.classList.add('active');
+btnCreate.addEventListener('click', function(){
+  reset();
+
+  ticket.classList.remove('d-none');
 
   priceDiscount = price;
 
-  col1.innerHTML += inputName.value;
+  colName.innerHTML += Name.value;
 
-  if(inputAge.value == 'Minorenne'){
-    col2.innerHTML += 'Biglietto minorenne';
+  if(Age.value == 'underage'){
+    colType.innerHTML += 'Biglietto per minorenne';
 
-    priceDiscount *= 1 - (discountYoung/100);
-    col5.innerHTML += priceDiscount.toFixed(2);
-  }else if(inputAge.value == 'Maggiorenne'){
-    col2.innerHTML += 'Biglietto standard';
+    priceDiscount *= 1 - (discountUnderage/100);
 
-    col5.innerHTML += priceDiscount.toFixed(2);
-  }else if(inputAge.value == 'Over 65'){
-    col2.innerHTML += 'Biglietto over 65';
+    colCost.innerHTML += priceDiscount.toFixed(2);
+  }else if(Age.value == 'adult'){
+    colType.innerHTML += 'Biglietto standard';
 
-    priceDiscount *= 1 - (discountSenior/100);
-    col5.innerHTML += priceDiscount.toFixed(2);
+    colCost.innerHTML += priceDiscount.toFixed(2);
+  }else if(Age.value == 'old'){
+    colType.innerHTML += 'Biglietto per anziano';
+
+    priceDiscount *= 1 - (discountOld/100);
+
+    colCost.innerHTML += priceDiscount.toFixed(2);
   }
 
-  col3.innerHTML += Math.floor(Math.random() * 10) + 1;
+  colCarriage.innerHTML += Math.floor(Math.random() * 10) + 1;
 
-  col4.innerHTML += Math.floor(Math.random() * 10000) + 1;
-});
+  colCode.innerHTML += Math.floor(Math.random() * 10000) + 1;
+})
 
-bottone2.addEventListener('click', function(){
-  containerActive.classList.remove('active');
+btnReset.addEventListener('click', reset);
 
-  col1.innerHTML = `<h2>NOME PASSEGERO</h2>`;
-  col2.innerHTML = `<h3>Offerta</h3>`;
-  col3.innerHTML = `<h3>Carrozza</h3>`;
-  col4.innerHTML = `<h3>Codice CP</h3>`;
-  col5.innerHTML = `<h3>Costo biglietto</h3>`;
-});
+function reset(){
+  ticket.classList.add('d-none');
+
+  colName.innerHTML = `<h4>Nome passegero</h4>`;
+  colType.innerHTML = `<h4>Tipo biglietto</h4>`;
+  colCarriage.innerHTML = `<h4>Carrozza</h4>`;
+  colCode.innerHTML = `<h4>Codice CP</h4>`;
+  colCost.innerHTML = `<h4>Costo biglietto</h4>`;
+}

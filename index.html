@@ -15,62 +15,57 @@
   <title>Biglietto treno</title>
 </head>
 <body>
-  <div class="container text-center my-3">
-    <h1 class="color-white">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
+  <div class="container d-flex flex-column justify-content-center align-items-center">
+    <div class="row rounded p-5">
+      <h1 class="text-center mb-3">Calcola il prezzo del tuo biglietto</h1>
 
-    <div class="bg-white rounded">
-      <div class="row justify-content-center py-3 ps-5 pe-5">
-        <div class="col">
-          <label for="label1" class="form-label">Nome e Cognome</label>
-          <input type="text" id="inputText1" class="form-control">
-        </div>
-
-        <div class="col">
-          <label for="label2" class="form-label">Km da percorrere</label>
-          <input type="text" id="inputText2" class="form-control">
-        </div>
-
-        <div class="col">
-          <label for="label3" class="form-label">Fascia d'età</label>
-          <select id="selectAge" class="form-select" aria-label="Default select example">
-            <option value="Minorenne">Minorenne</option>
-            <option value="Maggiorenne">Maggiorenne</option>
-            <option value="Over 65">Over 65</option>
-          </select>
-        </div>
+      <div class="col">
+        <label for="inputName" class="form-label">Nome e Cognome</label>
+        <input type="text" id="inputName" class="form-control">
       </div>
 
-      <button id="btn-1" class="btn btn-primary my-3">Genera</button>
-      <button id="btn-2" class="btn btn-primary my-3">Annulla</button>
+      <div class="col">
+        <label for="inputKm" class="form-label">Km da percorrere</label>
+        <input type="text" id="inputKm" class="form-control">
+      </div>
+
+      <div class="col">
+        <label for="selectAge" class="form-label">Fascia d'età</label>
+
+        <select id="selectAge" class="form-select">
+          <option value="underage">Minorenne</option>
+          <option value="adult">Maggiorenne</option>
+          <option value="old">Anziano</option>
+        </select>
+      </div>
+
+      <div class="btns d-flex justify-content-center">
+        <button id="btnCreate" class="btn btn-primary mt-3 me-3">Crea</button>
+        <button id="btnReset" class="btn btn-danger mt-3">Reset</button>
+      </div>
     </div>
-  </div>
 
-  <div class="container container-active my-3">
-    <h1 class="color-white text-center">Il tuo biglietto</h1>
+    <div class="row ticket d-none rounded mt-3 p-5">
+      <h1 class="text-center mb-3">Il tuo biglietto</h1>
+  
+      <div id="colName" class="col">
+        <h4>Nome passegero</h4>
+      </div>
 
-    <div class="bg-white">
-      <h2 class="ms-5">Dettaglio passegero</h2>
+      <div id="colType" class="col">
+        <h4>Tipo biglietto</h4>
+      </div>
 
-      <div class="row my-3 py-3 ps-5 pe-5">
-        <div id="col-1" class="col">
-          <h2>NOME PASSEGERO</h2>
-        </div>
-  
-        <div id="col-2" class="col">
-          <h3>Offerta</h3>
-        </div>
-  
-        <div id="col-3" class="col">
-          <h3>Carrozza</h3>
-        </div>
-  
-        <div id="col-4" class="col">
-          <h3>Codice CP</h3>
-        </div>
-  
-        <div id="col-5" class="col">
-          <h3>Costo biglietto</h3>
-        </div>
+      <div id="colCarriage" class="col">
+        <h4>Carrozza</h4>
+      </div>
+
+      <div id="colCode" class="col">
+        <h4>Codice CP</h4>
+      </div>
+
+      <div id="colCost" class="col">
+        <h4>Costo biglietto</h4>
       </div>
     </div>
   </div>

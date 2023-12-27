@@ -1,23 +1,17 @@
 :root{
-  --bg-body: #b91450
+  --bg-body: #b91450;
+  --bg-white: #fff;
 }
 
 body{
   background-color: var(--bg-body);
 }
 
-.color-white{
-  color: white;
+.container{
+  height: 100vh;
 }
 
-.bg-white{
-  background-color: white;
-}
-
-.container-active{
-  display: none;
-}
-
-.active{
-  display: block;
+.row{
+  width: 1200px;
+  background-color: var(--bg-white);
 }
